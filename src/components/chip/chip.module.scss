@@ -1,0 +1,49 @@
+.chip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5.93333px;
+  background-color: var(--background-secondary);
+  padding: 6px 0;
+  width: 88px;
+  height: 24px;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-right: 4.6px;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 8px;
+
+    color: var(--text-color);
+  }
+}
+
+.chip:first-child {
+  margin-right: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .chip {
+    border-radius: 5.93333px;
+    // padding: 13px 0px;
+    width: 140px;
+    height: 40px;
+    &__icon {
+      display: flex;
+      align-items: center;
+      margin-right: 4.6px;
+    }
+
+    &__text {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 14px;
+    }
+  }
+}

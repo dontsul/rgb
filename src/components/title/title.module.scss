@@ -1,0 +1,21 @@
+.title {
+  font-weight: 800;
+  font-size: 52.7273px;
+  line-height: 65px;
+
+  text-align: center;
+  text-transform: uppercase;
+  // white-space: nowrap;
+
+  color: var(--primary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    text-align: start;
+
+    font-weight: 800;
+    font-size: 77px;
+    line-height: 94px;
+  }
+}
