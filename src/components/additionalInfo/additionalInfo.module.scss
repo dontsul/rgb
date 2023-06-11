@@ -1,0 +1,133 @@
+.wrapInfo {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
+  max-width: 366px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  grid-template-areas:
+    'bonus'
+    'man';
+}
+
+.infoBonus {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 70%;
+  grid-area: bonus;
+  margin: 0 auto 22px auto;
+
+  &__imgBonus {
+    margin-right: 16px;
+  }
+}
+
+.infoMan {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 70%;
+
+  grid-area: man;
+  margin: 0 auto;
+
+  &__imgMan {
+    margin-right: 11px;
+  }
+}
+
+.bonus {
+  display: inline-block;
+  &__title {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 148%;
+
+    color: var(--text-color);
+  }
+
+  &__text {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 148%;
+
+    color: var(--text-color);
+  }
+}
+
+.man {
+  display: inline-block;
+  &__title {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 120%;
+
+    text-transform: uppercase;
+
+    color: var(--text-color);
+  }
+  &__title span {
+    color: var(--secondary-color);
+  }
+
+  &__text {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 148%;
+
+    color: var(--text-color);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .wrapInfo {
+    justify-content: start;
+    align-items: flex-start;
+    max-width: inherit;
+    padding-bottom: 0;
+
+    grid-template-areas:
+      'man'
+      'bonus';
+  }
+
+  .infoBonus {
+    grid-area: bonus;
+    margin: 0;
+
+    &__imgBonus {
+      margin-right: 22px;
+    }
+  }
+  .infoMan {
+    grid-area: man;
+    margin: 0;
+    margin-bottom: 16px;
+
+    &__imgMan {
+      margin-right: 17px;
+    }
+  }
+
+  .bonus {
+    &__title {
+      font-size: 12px;
+    }
+  }
+
+  .man {
+    &__title {
+      font-size: 13px;
+    }
+
+    &__text {
+      line-height: 160%;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.tech {
+  width: 0px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  // overflow-x: hidden;
+}
+.html {
+  display: inline-block;
+  position: relative;
+  left: 80px;
+
+  &__r {
+    top: 20px;
+    left: 105px;
+    position: absolute;
+  }
+}
+
+.css {
+  display: inline-block;
+  position: relative;
+
+  &__img {
+    top: 120px;
+  }
+
+  &__r {
+    top: -5px;
+    left: 73px;
+    position: absolute;
+  }
+}
+
+.javascript {
+  display: inline-block;
+  position: relative;
+  left: 108px;
+  bottom: 46px;
+
+  &__img {
+    top: 120px;
+  }
+
+  &__r {
+    top: 16px;
+    left: 84px;
+    position: absolute;
+  }
+}
+.sublimeText {
+  display: inline-block;
+  position: relative;
+
+  left: 6px;
+  bottom: 53px;
+
+  &__img {
+    top: 120px;
+  }
+
+  &__r {
+    top: -12px;
+    left: 52px;
+    position: absolute;
+  }
+}
+
+.vscode {
+  display: inline-block;
+  position: relative;
+
+  left: 82px;
+  bottom: 70px;
+
+  &__img {
+    top: 120px;
+  }
+
+  &__r {
+    top: 64px;
+    left: 82px;
+    position: absolute;
+  }
+}

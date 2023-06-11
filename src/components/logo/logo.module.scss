@@ -1,0 +1,39 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__icon {
+    margin-right: 14px;
+    height: 32px;
+    width: 28px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__line {
+    color: var(--text-color);
+    font-size: 11px;
+  }
+  &__line:last-child {
+    font-weight: 800;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    &__icon {
+      height: 56px;
+      width: 50px;
+    }
+
+    &__line {
+      font-size: 16px;
+    }
+  }
+}

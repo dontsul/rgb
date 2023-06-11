@@ -1,0 +1,56 @@
+.main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 0;
+  grid-template-areas:
+    'header'
+    'description'
+    'form'
+    'info';
+}
+
+.header {
+  grid-area: header;
+}
+.description {
+  grid-area: description;
+}
+.form {
+  grid-area: form;
+  justify-self: center;
+  overflow-x: hidden;
+}
+.info {
+  grid-area: info;
+}
+
+.techWrap {
+  display: none;
+  position: absolute;
+  top: 234px;
+  right: -36px;
+  z-index: 0;
+
+  // overflow-x: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .techWrap {
+    display: block;
+  }
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    column-gap: 20px;
+
+    grid-template-areas:
+      'header header'
+      'description form'
+      'info form ';
+  }
+  .form {
+    justify-self: end;
+  }
+}

@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import styles from './App.module.scss';
+import { Header } from './components/header/Header';
+import { Description } from './components/description/Description';
+import { WrapForm } from './components/wrapForm/WrapForm';
+import { AdditionalInfo } from './components/additionalInfo/AdditionalInfo';
+import { Footer } from './components/footer/Footer';
+import { Technologies } from './components/technologies/Technologies';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="container">
+        <div className={styles.main}>
+          <div className={styles.header}>
+            <Header />
+          </div>
+          <div className={styles.description}>
+            <Description />
+          </div>
+          <div className={styles.form}>
+            <WrapForm />
+          </div>
+          <div className={styles.info}>
+            <AdditionalInfo />
+          </div>
+          {/* <div className={styles.techWrap}>
+            <Technologies />
+          </div> */}
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }

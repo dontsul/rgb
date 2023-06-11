@@ -1,0 +1,60 @@
+.wrap__input {
+  margin-bottom: 14px;
+}
+
+.input {
+  background: #272d3d;
+  border-radius: 5px;
+  padding: 14px 26px;
+  width: 100%;
+  color: var(--text-color);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.input::placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+
+  color: #d7d7d7;
+}
+
+.phone__input {
+  background: #272d3d;
+  border-radius: 5px;
+  padding: 14px 22px;
+  width: 100%;
+  color: var(--text-color);
+}
+
+.phone__input input {
+  color: var(--text-color);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.phone__input input::placeholder {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 24px;
+
+  color: #d7d7d7;
+}
+
+.error {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .input {
+    padding: 13px 22px;
+  }
+}

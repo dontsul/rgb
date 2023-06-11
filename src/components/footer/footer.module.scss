@@ -1,0 +1,17 @@
+.footer {
+  display: none;
+  font-weight: 800;
+  font-size: 129.359px;
+  line-height: 158px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 4px rgba(255, 255, 255, 0.05);
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    // display: block;
+  }
+}
