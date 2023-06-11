@@ -1,21 +1,21 @@
 import PhoneInputWithCountry from 'react-phone-number-input/react-hook-form';
-// import sgMail from '@sendgrid/mail';
+import { isPossiblePhoneNumber } from 'react-phone-number-input';
 import { Button } from '../button/Button';
+import { useRef } from 'react';
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import 'react-phone-number-input/style.css';
 import styles from './customForm.module.scss';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
 
 const schema = yup
   .object({
     fullname: yup.string().required(),
     email: yup.string().email().required(),
-    phoneInputWithCountrySelect: yup.string().required(),
+    phone: yup.string().required(),
   })
   .required();
 type FormData = yup.InferType<typeof schema>;
@@ -25,36 +25,33 @@ export const CustomForm = () => {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
-  const apiKey = process.env.REACT_APP_API_KEY;
-  // sgMail.setApiKey('');
-  console.log(apiKey);
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+  const form = useRef<HTMLFormElement>(null);
 
-    // const msg = {
-    //   to: 'dontsul.v@gmail.com', // Замените на ваш адрес электронной почты
-    //   from: data.email,
-    //   subject: 'Новая форма отправлена',
-    //   text: 'Здесь можно добавить дополнительный текст',
-    // };
+  const serviceId = process.env.REACT_APP_SERVICE_ID as string;
 
-    // sgMail
-    //   .send(msg)
-    //   .then(() => {
-    //     console.log('Электронная почта успешно отправлена');
-    //   })
-    //   .catch((error) => {
-    //     console.error('Произошла ошибка при отправке электронной почты:', error);
-    //   });
+  const onSubmit = async (data: FormData) => {
+    if (form.current) {
+      emailjs.sendForm(serviceId, 'template_5hk6rlg', form.current, 'uMkZhsDrmPmInehKk').then(
+        (result) => {
+          toast.success('Форма была успешно отправлена!');
+          reset();
+        },
+        (error) => {
+          toast.error('Что-то пошло не так...');
+          reset();
+        }
+      );
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form ref={form} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.wrap__input}>
         <input
           placeholder="Ваше имя и фамилия"
@@ -73,16 +70,20 @@ export const CustomForm = () => {
         <PhoneInputWithCountry
           placeholder="Ваш номер телефона"
           className={styles.phone__input}
-          // name="phoneInputWithCountrySelect"
+          name="phone"
           control={control}
-          rules={{ required: true }}
+          rules={{ required: true, validate: isPossiblePhoneNumber }}
           defaultCountry="UA"
-          {...register('phoneInputWithCountrySelect')}
+          autoComplete="tel"
+          displayInitialValueAsLocalNumber
+          international
+          withCountryCallingCode
         />
-        <p className={styles.error}>{errors.phoneInputWithCountrySelect?.message}</p>
+        <p className={styles.error}>{errors.phone?.message}</p>
       </div>
 
       <Button />
+      <Toaster position="top-center" />
     </form>
   );
 };
