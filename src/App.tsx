@@ -8,7 +8,7 @@ import { Footer } from './components/footer/Footer';
 import { Technologies } from './components/technologies/Technologies';
 function App() {
   return (
-    <div>
+    <div style={{ overflowX: 'hidden' }}>
       <div className="container">
         <div className={styles.main}>
           <div className={styles.header}>
@@ -23,11 +23,12 @@ function App() {
           <div className={styles.info}>
             <AdditionalInfo />
           </div>
-          {/* <div className={styles.techWrap}>
-            <Technologies />
-          </div> */}
+        </div>
+        <div className={styles.wrapTech}>
+          <Technologies />
         </div>
       </div>
+
       <Footer />
     </div>
   );

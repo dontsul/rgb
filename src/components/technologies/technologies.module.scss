@@ -1,9 +1,10 @@
 .tech {
-  width: 0px;
-  display: flex;
+  display: none;
+
+  width: 200px;
   flex-direction: column;
   position: relative;
-  // overflow-x: hidden;
+  overflow-x: hidden;
 }
 .html {
   display: inline-block;
@@ -81,5 +82,10 @@
     top: 64px;
     left: 82px;
     position: absolute;
+  }
+}
+@media screen and (min-width: 768px) {
+  .tech {
+    display: flex;
   }
 }

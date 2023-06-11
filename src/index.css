@@ -16,6 +16,9 @@ body {
   background: linear-gradient(180deg, rgba(39, 40, 59, 1) 50%, rgba(48, 45, 91, 1) 100%);
 
   overflow-x: hidden;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -23,6 +26,7 @@ body {
   width: 90%;
   max-width: 1000px;
   z-index: 100;
+  position: relative;
 }
 
 ::-webkit-scrollbar {
