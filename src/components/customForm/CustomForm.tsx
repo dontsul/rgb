@@ -13,9 +13,12 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const schema = yup
   .object({
-    fullname: yup.string().required(),
-    email: yup.string().email().required(),
-    phone: yup.string().required(),
+    fullname: yup.string().required('Поле обязательное для заполнения'),
+    email: yup
+      .string()
+      .email('Email должен быть валидным')
+      .required('Поле обязательное для заполнения'),
+    phone: yup.string().required('Поле обязательное для заполнения'),
   })
   .required();
 type FormData = yup.InferType<typeof schema>;
